@@ -9,6 +9,11 @@
     <style>
         body {
             font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+        
+        html {
+            overflow-x: hidden;
         }
         .coral-gradient {
             background: linear-gradient(135deg, #FF9A8B 0%, #F4A688 50%, #FF8A80 100%);
@@ -398,6 +403,7 @@
             overflow-x: auto;
             scroll-behavior: smooth;
             scrollbar-width: none;
+            max-width: 100vw;
         }
         .carousel-container::-webkit-scrollbar {
             display: none;
@@ -608,6 +614,20 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
         
+        /* Correção de overflow */
+        .container {
+            max-width: 100%;
+            box-sizing: border-box;
+        }
+        
+        * {
+            box-sizing: border-box;
+        }
+        
+        .main-content-section {
+            overflow: hidden;
+        }
+        
         /* Botões responsivos mobile */
         @media (max-width: 768px) {
             .floating-buttons {
@@ -619,6 +639,7 @@
                 padding: 15px 25px;
                 font-size: 16px;
                 min-width: 220px;
+                max-width: calc(100vw - 60px);
             }
             .whatsapp-float {
                 width: 70px;
@@ -627,6 +648,14 @@
             .whatsapp-float svg {
                 width: 35px;
                 height: 35px;
+            }
+            
+            .grid {
+                overflow: hidden;
+            }
+            
+            .carousel-container {
+                padding-right: 20px;
             }
         }
     </style>
@@ -1039,7 +1068,7 @@
     </section>
 
     <!-- Galeria de Produtos Recentes -->
-    <section class="py-16">
+    <section class="py-16 overflow-hidden">
         <div class="container mx-auto px-6">
             <div class="text-center mb-12 fade-in animate-element">
                 <h2 class="text-4xl lg:text-5xl font-bold text-orange-400 mb-4" style="text-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);">
@@ -1049,7 +1078,8 @@
             </div>
             
             <!-- Carrossel de Produtos -->
-            <div class="carousel-container flex space-x-6 pb-4 fade-in animate-element">
+            <div class="overflow-hidden">
+                <div class="carousel-container flex space-x-6 pb-4 fade-in animate-element">
                 <div class="flex-shrink-0 w-80">
                     <img src="images/produtos/produto1.jpg" alt="Projeto 1" class="w-full h-64 object-cover rounded-2xl shadow-lg">
                     <div class="bg-white/90 p-4 rounded-b-2xl">
